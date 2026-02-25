@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Global Tech News</h1>
+
+{% for article in articles %}
+<div>
+    <h2>{{ article.title }}</h2>
+    <p><strong>Tool:</strong> {{ article.tool.name }}</p>
+    <p>{{ article.content|truncatewords:30 }}</p>
+    <a href="{{ article.source_url }}" target="_blank">
+        Read Original Source
+    </a>
+    <hr>
+</div>
+{% empty %}
+<div class="card">
+    <p>No news articles available.</p>
+</div>
+{% endfor %}
+
+{% endblock %}

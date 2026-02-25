@@ -1,0 +1,98 @@
+/* Reset thoda basic */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Center container */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+nav {
+    background: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #0077ff;
+}
+
+/* Headings */
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+/* Card style */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Buttons */
+button {
+    background: #0077ff;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005edb;
+}
+
+/* Inputs */
+input[type="text"] {
+    padding: 6px 10px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+    }
+
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

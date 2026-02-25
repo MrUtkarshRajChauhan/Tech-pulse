@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Main Tool Card -->
+<div class="card">
+
+    <h1>{{ tool.name }}</h1>
+
+    <p>
+        <strong>Company:</strong> {{ tool.company }}
+    </p>
+
+    <p>
+        <strong>Category:</strong> {{ tool.category }}
+    </p>
+
+    <p style="margin-top: 10px;">
+        {{ tool.description }}
+    </p>
+
+    {% if tool.trending %}
+        <p style="margin-top: 10px;">
+            <strong>🔥 Trending Tool</strong>
+        </p>
+    {% endif %}
+
+</div>
+
+
+<!-- Related News Section -->
+<h2 style="margin: 30px 0 15px 0;">Related News</h2>
+
+{% for article in tool.news_articles.all %}
+
+    <div class="card">
+
+        <h3>{{ article.title }}</h3>
+
+        <p>
+            {{ article.content|truncatewords:30 }}
+        </p>
+
+        <p style="margin-top: 10px;">
+            <a href="{{ article.source_url }}" target="_blank">
+                Read Full Article →
+            </a>
+        </p>
+
+    </div>
+
+{% empty %}
+
+    <div class="card">
+        <p>No news available for this tool.</p>
+    </div>
+
+{% endfor %}
+
+<p style="margin-top: 20px;">
+    <a href="/">← Back to Tools</a>
+</p>
+
+{% endblock %}

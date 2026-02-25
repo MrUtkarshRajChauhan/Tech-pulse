@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>AI Tools</h1>
+
+<!-- Search + Filter Combined Form -->
+<form method="get" style="margin-bottom: 25px;">
+    <input type="text" name="q" placeholder="Search tools..." value="{{ request.GET.q }}">
+    <input type="text" name="category" placeholder="Filter by category" value="{{ request.GET.category }}">
+    
+    <label style="margin-left: 10px;">
+        <input type="checkbox" name="trending" value="true"
+        {% if request.GET.trending %}checked{% endif %}>
+        Trending Only
+    </label>
+
+    <button type="submit">Apply</button>
+</form>
+
+{% for tool in tools %}
+    <div class="card">
+        <h2>
+            <a href="{% url 'tool_detail' tool.id %}">
+                {{ tool.name }}
+            </a>
+        </h2>
+
+        <p><strong>Company:</strong> {{ tool.company }}</p>
+        <p><strong>Category:</strong> {{ tool.category }}</p>
+
+        <p>{{ tool.description|truncatewords:25 }}</p>
+
+        {% if tool.trending %}
+            <p><strong>🔥 Trending Tool</strong></p>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>No tools found.</p>
+{% endfor %}
+
+{% endblock %}
